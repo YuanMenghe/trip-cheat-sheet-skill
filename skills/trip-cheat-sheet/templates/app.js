@@ -306,12 +306,18 @@
         home.label || tzLabel(home.tz), ' ',
         el('b', null, now.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric', timeZone: home.tz }) + ' ' + homeP.hour + ':' + homeP.minute)
       ]));
-      if (active && active.tz !== home.tz) {
-        var ap = tzParts(now.getTime(), active.tz);
-        clocks.appendChild(el('span', { class: 'clock' }, [
-          active.label || tzLabel(active.tz), ' ',
-          el('b', null, now.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric', timeZone: active.tz }) + ' ' + ap.hour + ':' + ap.minute)
-        ]));
+      if (active) {
+        var nowMs = now.getTime();
+        var sameOffset = offsetAt(active.tz, nowMs) === offsetAt(home.tz, nowMs);
+        if (sameOffset) {
+          clocks.appendChild(el('span', { class: 'clock same-tz', title: '目的地与常驻地时区相同，无需换算' }, ['同时区：' + (active.label || tzLabel(active.tz)) + ' 与 ' + (home.label || tzLabel(home.tz))]));
+        } else {
+          var ap = tzParts(nowMs, active.tz);
+          clocks.appendChild(el('span', { class: 'clock' }, [
+            active.label || tzLabel(active.tz), ' ',
+            el('b', null, now.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric', timeZone: active.tz }) + ' ' + ap.hour + ':' + ap.minute)
+          ]));
+        }
       }
     }
     paintClocks();
@@ -394,6 +400,18 @@
     // 顶部
     var titleEl = document.querySelector('#top h1');
     if (titleEl) titleEl.textContent = model.meta.title || '行程';
+    // 行程性质徽章（公差 / 私差 / 混合）
+    var typeLabels = { business: '公差', leisure: '私差', mixed: '混合' };
+    var typeLabel = typeLabels[model.meta.tripType];
+    if (typeLabel) {
+      var titleRow = document.querySelector('#top .title-row');
+      if (titleRow && titleEl) {
+        titleRow.insertBefore(
+          el('span', { class: 'trip-type', title: '行程性质：' + typeLabel }, typeLabel),
+          titleEl.nextSibling
+        );
+      }
+    }
     var refs = { setView: setView, selectDay: selectDay, todayIndex: todayIndex };
     renderTop(model, refs);
 
@@ -452,8 +470,12 @@
       if (ev.start < NOW) node.classList.add('is-past');
       if (info && info.kind === 'next' && info.ev.id === ev.id) node.classList.add('is-next');
       if (info && info.kind === 'current' && info.ev.id === ev.id) node.classList.add('is-next');
-      var time = el('div', { class: 'time' }, [el('b', null, fmtInTz(ev.start, ev.tz)), el('span', { class: 'home' }, (model.home.label || tzLabel(model.home.tz) || '常驻地') + ' ' + fmtInTz(ev.start, model.home.tz))]);
-      if (ev.skipTimezone) time = el('div', { class: 'time' }, [el('b', null, fmtInTz(ev.start, ev.tz))]);
+      var sameTzAsHome = offsetAt(ev.tz, ev.start) === offsetAt(model.home.tz, ev.start);
+      var showHome = !ev.skipTimezone && model.meta.showTimezone !== false && !sameTzAsHome;
+      var time = el('div', { class: 'time' }, [el('b', null, fmtInTz(ev.start, ev.tz))]);
+      if (showHome) {
+        time.appendChild(el('span', { class: 'home' }, (model.home.label || tzLabel(model.home.tz) || '常驻地') + ' ' + fmtInTz(ev.start, model.home.tz)));
+      }
       var card = el('div', { class: 'card' });
       var head = el('div', { class: 'head' }, [el('h3', null, ev.title)]);
       if (ev.kind && KIND_LABEL[ev.kind]) head.appendChild(el('span', { class: 'tag' }, KIND_LABEL[ev.kind]));
@@ -519,8 +541,8 @@
         main.appendChild(box);
       }
       main.appendChild(footerNode());
-      // 自动滚到"接下来"
-      if (info.ev && info.ev.dayIndex === state.day) {
+      // 自动滚到"接下来"：只在 3 天内才滚，远期行程保留顶部上下文（日期条/出发提示）
+      if (info.ev && info.ev.dayIndex === state.day && info.ev.start - NOW < 3 * 86400000) {
         setTimeout(function () { scrollToEvent(info.ev.id); }, 60);
       }
     }

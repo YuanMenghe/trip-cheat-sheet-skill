@@ -31,7 +31,7 @@
 | `pwa` | boolean | — | 默认 `true`，生成 manifest 与主屏图标 meta |
 | `gate` | `{enabled, passwordHash}` | — | 可选密码门：`passwordHash` 为密码的 SHA-256（hex）；`build.mjs --gate-password xxx` 可自动生成 |
 | `footer` | string | — | 页脚备注（如「内容截至 2026-11-10，出行前请复核」） |
-| `showTimezone` | boolean | — | 默认 `true`：每条事件显示「目的地时间 → 北京时间」 |
+| `showTimezone` | boolean | — | 默认 `true`：每条事件显示「目的地时间 → 常驻地时间」；**目的地与常驻地在同一时区（同一 UTC 偏移）时自动只显示一个时间**，顶部时钟标注「同时区」；设 `false` 可全局关闭换算显示 |
 
 ## destinations
 
