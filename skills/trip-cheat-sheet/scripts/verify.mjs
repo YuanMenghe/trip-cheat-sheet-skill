@@ -66,6 +66,14 @@ export function validateTrip(data, opts = {}) {
   if (isDate(meta.startDate) && isDate(meta.endDate) && meta.startDate > meta.endDate) push('error', 'meta.startDate 晚于 meta.endDate');
   if (meta.theme && !THEMES.has(meta.theme)) push('error', `meta.theme 只能是 paper/slate/night，当前 ${meta.theme}`);
   if (meta.mapProvider && !['google', 'amap', 'apple'].includes(meta.mapProvider)) push('error', `meta.mapProvider 无效：${meta.mapProvider}`);
+  if (meta.tripType && !['business', 'leisure', 'mixed'].includes(meta.tripType)) push('error', `meta.tripType 只能是 business / leisure / mixed，当前 ${meta.tripType}`);
+  const isBiz = meta.tripType === 'business' || meta.tripType === 'mixed';
+  if (isBiz && !(Array.isArray(root.handbook) && root.handbook.some((g) => g && g.id === 'expense'))) {
+    push('warning', '公差/混合行程建议加 handbook「expense（报销与票据）」章：发票、行程单、审批单、公司卡/个人垫付');
+  }
+  if (meta.tripType === 'mixed' && !meta.footer) {
+    push('warning', '混合行程建议在 meta.footer 写清「哪几天是公差、哪几天是私人行程」，避免报销口径混淆');
+  }
   if (meta.gate && meta.gate.enabled) {
     if (!/^[a-f0-9]{64}$/i.test(String(meta.gate.passwordHash || ''))) push('error', 'meta.gate.passwordHash 必须是 SHA-256 hex（64 位）');
   } else if (meta.gate && meta.gate.passwordHash) {

@@ -22,6 +22,7 @@
 |---|---|---|---|
 | `title` | string | ✅ | 站点主标题，如「东京 · 学术会议 2026」 |
 | `subtitle` | string | — | 副标题，如「5 天 4 夜 · 2 人」 |
+| `tripType` | `"business" \| "leisure" \| "mixed"` | — | 行程性质：**公差 / 私差 / 混合**。公差需要报销与审批信息、住宿常受公司标准约束；私差关注预算与体验；混合要在 `meta.footer` 或 `days[].note` 写清哪几天是公差。生成器会校验取值，`verify` 会对公差/混合缺少「报销与票据」章给出警告。 |
 | `home` | `{label, tz}` | ✅ | 出发/常驻地：`label` 如「北京」，`tz` 为 IANA 时区 |
 | `theme` | `"paper" \| "slate" \| "night"` | — | 默认 `paper`（暖纸），`night` 为深色 |
 | `lang` | string | — | 默认 `zh-CN` |

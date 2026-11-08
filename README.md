@@ -38,6 +38,7 @@ TripCheat 是一个开源的 [Agent Skill](https://agentskills.io)：装进 Clau
 - **清单**：勾选状态只存本机浏览器（localStorage），不上传；`copy` 字段一键复制地址、预约号、电话。
 - **手册**：支持搜索，HTML 白名单清洗，适合写「怎么走 / 怎么付 / 出问题找谁」。
 - **调研有标准**：路线必须用地图软件核验（时间区间、末班车、步行距离）；餐厅参考平台评分 + 小红书真实体验（只作个人体验）并确认能否预约；住宿写清通勤、夜间生活便利与报销（发票/标准/押金）条件，以及选址取舍。
+- **公差 / 私差 / 混合三条路径**：`meta.tripType` 区分行程性质——公差自动要求报销与票据章（发票抬头/行程单/审批单/公司卡）、住宿受公司标准约束；私差关注预算与体验；混合分段标注、发票口径只覆盖公差段。
 - **主题与字号**：paper（暖纸）/ slate（冷灰）/ night（夜间）三种主题，小/标准/大/特大四种字号，默认跟随系统深色模式。
 - **PWA**：可加到手机主屏（`--no-pwa` 可关闭）。
 - **密码门**：`--gate-password` 前端 SHA-256 校验 + 本机记忆，熟人分享级保护（边界见 [deploy.md](skills/trip-cheat-sheet/references/deploy.md)）。
@@ -216,6 +217,7 @@ trip-cheat-sheet-skill/
 - Single-file HTML (default) or multi-page static site (`--multi`) with per-person `ticket-<id>.html` pages.
 - QR ticket pages, map deep links (Google / Amap / Apple), one-tap copy fields, checklist state saved in `localStorage`.
 - **Research standards**: routes verified with map apps (time ranges, last trains, walking distances); restaurants cross-checked with platform ratings + Xiaohongshu real experiences (personal experience only) and confirmed for reservation availability; hotels justified by commute, nightlife/shopping access, and reimbursement rules (invoice type, cap, deposit).
+- **Business / leisure / mixed tracks**: `meta.tripType` drives what gets generated — business trips require an expense & receipts chapter (invoice header, tax ID, itinerary, approval, corporate card) and hotels respect company caps/channels; leisure trips focus on budget and experience; mixed trips are split by segment with reimbursement scoped to the business leg.
 - Themes (paper / slate / night), font size switch, PWA install, optional password gate.
 - Data contract + validator; zero backend; pure static output.
 - Example data is fictional and sanitized; QR images in the repo are placeholders only.
