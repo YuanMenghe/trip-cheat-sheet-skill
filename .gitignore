@@ -1,0 +1,11 @@
+# 依赖与构建产物
+node_modules/
+dist/
+_site/
+_single/
+
+# 本地测试 / 临时文件
+_test/
+*.log
+.DS_Store
+Thumbs.db

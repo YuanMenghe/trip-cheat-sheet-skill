@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="{{THEME_COLOR}}">
+<meta name="description" content="{{DESCRIPTION}}">
+<meta name="robots" content="noindex">
+<meta name="generator" content="TripCheat / AI 行程规划专家">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>{{TITLE}}</title>
+<link rel="icon" href="{{FAVICON}}">
+{{CSS_BLOCK}}
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="app">
+  <header id="top">
+    <div class="top-inner">
+      <div class="title-row">
+        <span class="mark" aria-hidden="true"></span>
+        <h1>{{TITLE}}</h1>
+        <button type="button" class="icon-btn" id="font-btn" aria-label="切换字号">字·标准</button>
+        <button type="button" class="icon-btn" id="theme-btn" aria-label="切换颜色主题">主题</button>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="view">
+    <noscript><p class="empty">这个页面需要启用 JavaScript 才能显示二维码。</p></noscript>
+  </main>
+</div>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<script type="application/json" id="trip-ticket">{{DATA}}</script>
+{{JS_BLOCK}}
+</body>
+</html>

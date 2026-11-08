@@ -1,0 +1,1350 @@
+{
+  "meta": {
+    "title": "东京 · 学术会议 2026",
+    "subtitle": "5 天 4 夜 · 2 人（A / B）· 示例数据",
+    "home": {
+      "label": "北京",
+      "tz": "Asia/Shanghai"
+    },
+    "theme": "paper",
+    "lang": "zh-CN",
+    "startDate": "2026-11-20",
+    "endDate": "2026-11-24",
+    "mapProvider": "google",
+    "pwa": true,
+    "showTimezone": true,
+    "footer": "示例数据整理于 2026-11-08，仅用于演示，非真实预订：航班时刻、场地、编号、票码均为占位，出行前请以航空公司、酒店与会议官方通知为准。"
+  },
+  "destinations": [
+    {
+      "id": "tyo",
+      "label": "东京",
+      "tz": "Asia/Tokyo"
+    }
+  ],
+  "days": [
+    {
+      "date": "2026-11-20",
+      "destination": "tyo",
+      "title": "出发 · 抵达东京",
+      "note": "当天跨时区：东京 UTC+9 比北京 UTC+8 早 1 小时。航班与地面交通时刻均为示例，以实际订单与机场大屏为准。",
+      "events": [
+        {
+          "time": "06:15",
+          "endTime": "07:00",
+          "tz": "Asia/Shanghai",
+          "title": "北京 → 首都机场 T3",
+          "short": "去机场",
+          "detail": "示例安排：从市区出发前往首都机场 T3，预留约 40 分钟车程（视路况而定）。\n护照、登机牌、酒店确认单放在同一个随身袋里，行李按航空规定托运。",
+          "kind": "move",
+          "location": "北京首都国际机场 T3",
+          "map": {
+            "query": "北京首都国际机场T3航站楼",
+            "mode": "driving"
+          },
+          "links": [
+            {
+              "label": "首都机场官网",
+              "href": "https://www.bcia.com.cn/"
+            }
+          ]
+        },
+        {
+          "time": "07:00",
+          "endTime": "09:45",
+          "tz": "Asia/Shanghai",
+          "title": "值机 · 安检 · 出境",
+          "short": "值机安检",
+          "detail": "示例：国际航班建议提前约 3 小时到达航站楼；柜台开放与值机截止时间以航司和机场公示为准。\n本仓库不记录真实票号——登机牌请存手机离线相册或打印一份。",
+          "kind": "check",
+          "location": "首都机场 T3 值机柜台（示例）",
+          "map": {
+            "query": "北京首都国际机场T3航站楼",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "首都机场 · 出行提示",
+              "href": "https://www.bcia.com.cn/"
+            }
+          ],
+          "checkId": "check-flight"
+        },
+        {
+          "time": "10:20",
+          "endTime": "13:35",
+          "tz": "Asia/Shanghai",
+          "title": "PEK → HND（示例航班）",
+          "short": "飞东京",
+          "detail": "示例时刻（均为北京时间）：10:20 北京起飞 → 13:35 落地，即东京时间 14:35。\n东京 UTC+9，比北京 UTC+8 早 1 小时；本航班按起飞地北京时间显示，落地后的事件为东京时间。\n航班号、航站楼与行李额以订单及机场大屏为准，本示例不写真实班次。",
+          "kind": "flight",
+          "location": "北京首都国际机场 T3 → 羽田机场 T3",
+          "map": {
+            "query": "羽田机场第3航站楼",
+            "mode": "transit"
+          },
+          "links": [
+            {
+              "label": "羽田机场官网",
+              "href": "https://www.haneda-airport.jp/"
+            },
+            {
+              "label": "首都机场官网",
+              "href": "https://www.bcia.com.cn/"
+            }
+          ]
+        },
+        {
+          "time": "14:35",
+          "endTime": "15:30",
+          "title": "入境 · 提取行李 · 海关",
+          "short": "入境取行李",
+          "detail": "落地后跟随「到着」指示前往入境审查；入境所需材料（Visit Japan Web 或纸质表格）以日本官方最新要求为准。\n取到行李先核对行李牌，再出到达大厅。",
+          "kind": "check",
+          "location": "羽田机场 T3 国际到达大厅",
+          "map": {
+            "query": "羽田机场第3航站楼",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "羽田机场官网",
+              "href": "https://www.haneda-airport.jp/"
+            },
+            {
+              "label": "Visit Japan Web",
+              "href": "https://www.vjw.digital.go.jp/"
+            }
+          ],
+          "checkId": "check-arrival"
+        },
+        {
+          "time": "15:40",
+          "endTime": "16:30",
+          "title": "羽田机场 → 有乐町一带",
+          "short": "机场去市区",
+          "detail": "示例路线：京急线至品川换 JR，或东京单轨至滨松町换 JR，全程约 35–50 分钟（视换乘与行李而定）。\n刷 Suica/IC 卡或现场购票；带大件行李尽量避开早晚高峰。",
+          "kind": "move",
+          "location": "羽田机场 T3 → 有乐町",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "transit"
+          },
+          "links": [
+            {
+              "label": "京急电铁",
+              "href": "https://www.keikyu.co.jp/"
+            },
+            {
+              "label": "东京单轨",
+              "href": "https://www.tokyo-monorail.co.jp/"
+            }
+          ]
+        },
+        {
+          "time": "16:40",
+          "endTime": "17:10",
+          "title": "酒店入住",
+          "short": "入住",
+          "detail": "出示护照与预订确认单办理入住（示例酒店，名称与订单号以实际预订为准）。\n确认退房时间、是否含早、Wi-Fi 密码；房卡与护照分开放。",
+          "kind": "check",
+          "location": "示例酒店（有乐町一带）",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京都观光官网",
+              "href": "https://www.gotokyo.org/"
+            },
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ],
+          "checkId": "check-hotel"
+        },
+        {
+          "time": "18:30",
+          "endTime": "19:30",
+          "title": "酒店周边简餐 · 便利店补给",
+          "short": "晚餐补给",
+          "detail": "第一天以倒时差为主：就近吃定食或拉面，便利店买水和早餐。\n不安排正式聚餐，21 点前回酒店休息。",
+          "kind": "meal",
+          "location": "有乐町站前（示例）",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ]
+        },
+        {
+          "time": "20:30",
+          "endTime": "21:00",
+          "title": "双时区校准 · 睡前准备",
+          "short": "时区校准",
+          "detail": "东京 UTC+9、北京 UTC+8：东京比北京早 1 小时（例：北京 09:00 = 东京 10:00）。\n把手机世界时钟加上北京与东京，闹钟按东京时间设到 07:00；明早 08:30 注册。",
+          "kind": "check",
+          "location": "酒店房间",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "日本气象厅",
+              "href": "https://www.jma.go.jp/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "destination": "tyo",
+      "title": "注册 · 开幕 · 分会一 · 海报环节",
+      "note": "会场按「东京国际论坛（有乐町）」示例场地安排，实际会场以会议通知为准。今天议程最满，随身带充电宝与水。",
+      "events": [
+        {
+          "time": "07:30",
+          "endTime": "08:20",
+          "title": "早餐 · 步行到会场",
+          "short": "去会场",
+          "detail": "酒店到会场步行约 10–15 分钟（示例）；下雨可走地下通道。\n提前到会场熟悉入口、寄存处与洗手间位置。",
+          "kind": "meal",
+          "location": "有乐町 → 东京国际论坛",
+          "map": {
+            "query": "东京国际论坛",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ]
+        },
+        {
+          "time": "08:30",
+          "endTime": "09:00",
+          "title": "注册 · 领取参会证",
+          "short": "注册领证",
+          "detail": "在注册台出示注册确认邮件（A、B 各一份，本仓库中以占位信息代替）领取参会证与会议手册。\n参会证二维码在「票券」页；入场前把屏幕调亮。",
+          "kind": "check",
+          "location": "东京国际论坛 B1 注册台（示例）",
+          "map": {
+            "query": "东京国际论坛",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ],
+          "checkId": "check-badge"
+        },
+        {
+          "time": "09:00",
+          "endTime": "10:15",
+          "title": "开幕 · 主旨报告",
+          "short": "开幕主旨",
+          "detail": "提前 10 分钟入场，手机静音；主旨报告不安排录音，需要时用笔记 App 记关键词。\n同传设备与语言以现场通知为准（示例）。",
+          "kind": "meeting",
+          "location": "东京国际论坛 主会场 Hall A（示例）",
+          "map": {
+            "query": "东京国际论坛",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            },
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ]
+        },
+        {
+          "time": "10:45",
+          "endTime": "12:15",
+          "title": "分会一（示例主题）",
+          "short": "分会一",
+          "detail": "分会并行：A 去 1 号会议室听「城市更新与步行网络」，B 去 2 号会议室听「公共空间与人群行为」，中午交换笔记。\n具体场次与报告人以当日议程为准。",
+          "kind": "meeting",
+          "location": "东京国际论坛 分会场（示例）",
+          "map": {
+            "query": "东京国际论坛",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ]
+        },
+        {
+          "time": "12:15",
+          "endTime": "13:30",
+          "title": "午餐（会场周边）",
+          "short": "午餐",
+          "detail": "会场周边与有乐町站地下街选择较多；12:00 前或 13:00 后就餐更从容。",
+          "kind": "meal",
+          "location": "有乐町站周边（示例）",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京都观光官网",
+              "href": "https://www.gotokyo.org/"
+            }
+          ]
+        },
+        {
+          "time": "14:00",
+          "endTime": "15:30",
+          "title": "海报环节 Poster Session",
+          "short": "海报环节",
+          "detail": "A 的海报编号示例 P-12（占位，以现场公布为准），14:00–14:45 在展位讲解；B 负责拍照与记录提问。\n讲解准备 1 分钟版与 3 分钟版各一。",
+          "kind": "meeting",
+          "location": "东京国际论坛 展示厅（示例）",
+          "map": {
+            "query": "东京国际论坛",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ],
+          "checkId": "check-poster"
+        },
+        {
+          "time": "16:00",
+          "endTime": "17:30",
+          "title": "自由活动：银座 · 有乐町周边",
+          "short": "自由活动",
+          "detail": "会场步行可达银座；适合逛书店、买伴手礼。18:00 前回酒店整理笔记。",
+          "kind": "free",
+          "location": "银座 · 有乐町",
+          "map": {
+            "query": "银座",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京都观光官网",
+              "href": "https://www.gotokyo.org/"
+            },
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ]
+        },
+        {
+          "time": "18:30",
+          "endTime": "19:30",
+          "title": "晚餐 · 备份笔记",
+          "short": "晚餐",
+          "detail": "就近简餐，回酒店把照片与笔记同步到云盘（本地留一份）。",
+          "kind": "meal",
+          "location": "有乐町站前（示例）",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "destination": "tyo",
+      "title": "分会二 · 下午自由（浅草 / 上野）",
+      "note": "上午两场会议，下午起自由半天：浅草 → 上野，以地铁与步行为主，穿舒适的鞋。",
+      "events": [
+        {
+          "time": "07:50",
+          "endTime": "08:40",
+          "title": "早餐 · 去会场",
+          "short": "早餐",
+          "detail": "早餐后在会场附近确认今日议程是否有临时调整。",
+          "kind": "meal",
+          "location": "有乐町（示例）",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ]
+        },
+        {
+          "time": "09:00",
+          "endTime": "10:30",
+          "title": "分会二（示例主题）",
+          "short": "分会二",
+          "detail": "A 听「开放数据与城市治理」，B 听「交通行为建模」；重点场次提前在议程页标记。\n两人把关键结论各写 3 条，午间合并。",
+          "kind": "meeting",
+          "location": "东京国际论坛 分会场（示例）",
+          "map": {
+            "query": "东京国际论坛",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ]
+        },
+        {
+          "time": "10:45",
+          "endTime": "11:30",
+          "title": "圆桌讨论 · Q&A",
+          "short": "圆桌讨论",
+          "detail": "示例：两位主持人带 4 位报告人圆桌；提问提前写好问题卡，控制在一个问题内。",
+          "kind": "meeting",
+          "location": "东京国际论坛 分会场（示例）",
+          "map": {
+            "query": "东京国际论坛",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ]
+        },
+        {
+          "time": "11:45",
+          "endTime": "13:00",
+          "title": "午餐 · 回酒店放资料",
+          "short": "午餐",
+          "detail": "午餐后回酒店放下电脑与会议资料，轻装去浅草。",
+          "kind": "meal",
+          "location": "有乐町站周边（示例）",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京都观光官网",
+              "href": "https://www.gotokyo.org/"
+            }
+          ]
+        },
+        {
+          "time": "13:30",
+          "endTime": "14:10",
+          "title": "有乐町 → 浅草",
+          "short": "去浅草",
+          "detail": "示例路线：地铁至浅草站，约 25–35 分钟；出站跟着「雷門」指示走。",
+          "kind": "move",
+          "location": "有乐町 → 浅草站",
+          "map": {
+            "query": "浅草駅",
+            "mode": "transit"
+          },
+          "links": [
+            {
+              "label": "东京地铁",
+              "href": "https://www.tokyometro.jp/"
+            },
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ]
+        },
+        {
+          "time": "14:10",
+          "endTime": "16:00",
+          "title": "浅草寺 · 仲见世通",
+          "short": "浅草寺",
+          "detail": "雷门 → 仲见世通 → 本堂，约 2 小时；人多时把背包前置。\n抽签、御守按需，本示例不记录具体消费。",
+          "kind": "visit",
+          "location": "浅草寺（东京都台东区浅草）",
+          "map": {
+            "query": "浅草寺",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "浅草寺官网",
+              "href": "https://www.senso-ji.jp/"
+            },
+            {
+              "label": "东京都观光官网",
+              "href": "https://www.gotokyo.org/"
+            }
+          ]
+        },
+        {
+          "time": "16:15",
+          "endTime": "16:45",
+          "title": "浅草 → 上野",
+          "short": "去上野",
+          "detail": "地铁一站至两站可达，也可步行约 25 分钟沿隅田川方向走。",
+          "kind": "move",
+          "location": "浅草 → 上野",
+          "map": {
+            "query": "上野駅",
+            "mode": "transit"
+          },
+          "links": [
+            {
+              "label": "东京地铁",
+              "href": "https://www.tokyometro.jp/"
+            }
+          ]
+        },
+        {
+          "time": "16:45",
+          "endTime": "18:00",
+          "title": "上野公园 · 东京国立博物馆",
+          "short": "上野公园",
+          "detail": "公园内博物馆与动物园较多，闭馆时间以各馆官网为准；时间不够就在公园与不忍池散步。\n自由活动以体力为准，不赶行程。",
+          "kind": "visit",
+          "location": "上野公园（东京都台东区上野）",
+          "map": {
+            "query": "上野公园",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国立博物馆",
+              "href": "https://www.tnm.jp/"
+            },
+            {
+              "label": "上野动物园",
+              "href": "https://www.tokyo-zoo.net/zoo/ueno/"
+            }
+          ]
+        },
+        {
+          "time": "18:30",
+          "endTime": "19:30",
+          "title": "晚餐（上野 / 阿美横町一带）",
+          "short": "晚餐",
+          "detail": "上野站周边餐饮集中；阿美横町晚间人多，注意随身物品。",
+          "kind": "meal",
+          "location": "上野站周边（示例）",
+          "map": {
+            "query": "上野駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ]
+        },
+        {
+          "time": "20:00",
+          "endTime": "20:40",
+          "title": "返回酒店",
+          "short": "回酒店",
+          "detail": "JR 山手线至上野 → 有乐町方向换乘，约 25–35 分钟。",
+          "kind": "move",
+          "location": "上野 → 有乐町",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "transit"
+          },
+          "links": [
+            {
+              "label": "JR 东日本",
+              "href": "https://www.jreast.co.jp/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-11-23",
+      "destination": "tyo",
+      "title": "分会三 · 闭幕 · 会议晚宴",
+      "note": "今天议程收尾，晚上是会议晚宴（smart casual）；明天回程，今晚把行李整理好。",
+      "events": [
+        {
+          "time": "08:30",
+          "endTime": "09:20",
+          "title": "早餐 · 整理行李",
+          "short": "早餐",
+          "detail": "先把不用的资料与伴手礼打包，明天退房更从容。",
+          "kind": "meal",
+          "location": "有乐町（示例）",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ]
+        },
+        {
+          "time": "09:30",
+          "endTime": "11:00",
+          "title": "分会三 / 工作坊（示例）",
+          "short": "分会三",
+          "detail": "示例：小规模工作坊，需自带电脑；名额以报名确认为准。\nA 参加方法工作坊，B 参加数据可视化工作坊。",
+          "kind": "meeting",
+          "location": "东京国际论坛 会议室（示例）",
+          "map": {
+            "query": "东京国际论坛",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ]
+        },
+        {
+          "time": "11:15",
+          "endTime": "12:00",
+          "title": "闭幕 · 优秀海报公布",
+          "short": "闭幕",
+          "detail": "闭幕含优秀海报公布与下届会议信息（示例）；散会后在会场门口合影。",
+          "kind": "meeting",
+          "location": "东京国际论坛 主会场 Hall A（示例）",
+          "map": {
+            "query": "东京国际论坛",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ]
+        },
+        {
+          "time": "12:15",
+          "endTime": "13:30",
+          "title": "午餐 · 道别",
+          "short": "午餐",
+          "detail": "与同组参会者简单道别，互换名片或联系方式。",
+          "kind": "meal",
+          "location": "有乐町站周边（示例）",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京都观光官网",
+              "href": "https://www.gotokyo.org/"
+            }
+          ]
+        },
+        {
+          "time": "14:00",
+          "endTime": "17:00",
+          "skipTimezone": true,
+          "title": "自由：银座补货 / 秋叶原（二选一）",
+          "short": "自由时间",
+          "detail": "按体力二选一；17:30 前回酒店休息，晚宴前换衣服。\n购物退税与限重请以商家与航空规定为准。",
+          "kind": "free",
+          "location": "银座 / 秋叶原（示例）",
+          "map": {
+            "query": "银座",
+            "mode": "transit"
+          },
+          "links": [
+            {
+              "label": "东京都观光官网",
+              "href": "https://www.gotokyo.org/"
+            },
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ]
+        },
+        {
+          "time": "18:30",
+          "endTime": "20:30",
+          "title": "会议晚宴",
+          "short": "晚宴",
+          "detail": "示例：18:30 入场，19:00 开席；着装 smart casual，不强制正装。\n适量饮酒；本示例不记录真实消费与预约信息。",
+          "kind": "meal",
+          "location": "银座 示例晚宴场地（占位）",
+          "map": {
+            "query": "银座",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "东京都观光官网",
+              "href": "https://www.gotokyo.org/"
+            }
+          ],
+          "checkId": "check-dinner"
+        },
+        {
+          "time": "21:00",
+          "endTime": "21:20",
+          "title": "回程准备 · 退房确认",
+          "short": "回程准备",
+          "detail": "查回程航班动态（天气与延误）、确认退房时间与去机场的路线；行李按航空规定整理。",
+          "kind": "check",
+          "location": "酒店房间",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "羽田机场官网",
+              "href": "https://www.haneda-airport.jp/"
+            },
+            {
+              "label": "日本气象厅",
+              "href": "https://www.jma.go.jp/"
+            }
+          ],
+          "checkId": "check-return"
+        }
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "destination": "tyo",
+      "title": "退房 · 返程北京",
+      "note": "回程当天：东京 13:00 起飞 = 北京 12:00 起飞；落地北京时间 15:45（东京时间 16:45）。东京比北京早 1 小时，机票上的回程时刻按东京时间读。",
+      "events": [
+        {
+          "time": "08:00",
+          "endTime": "09:00",
+          "title": "早餐 · 退房 · 寄存行李",
+          "short": "退房",
+          "detail": "退房前检查：充电器、护照、参会证、伴手礼（液体需托运）。\n行李先寄存在前台，出发去机场前再取。",
+          "kind": "check",
+          "location": "示例酒店（有乐町一带）",
+          "map": {
+            "query": "有乐町駅",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ]
+        },
+        {
+          "time": "09:10",
+          "endTime": "10:10",
+          "title": "酒店 → 羽田机场 T3",
+          "short": "去机场",
+          "detail": "示例路线：步行至有乐町站 → JR 至滨松町 → 东京单轨至羽田机场 T3，约 45–60 分钟。",
+          "kind": "move",
+          "location": "有乐町 → 羽田机场 T3",
+          "map": {
+            "query": "羽田机场第3航站楼",
+            "mode": "transit"
+          },
+          "links": [
+            {
+              "label": "东京单轨",
+              "href": "https://www.tokyo-monorail.co.jp/"
+            },
+            {
+              "label": "羽田机场官网",
+              "href": "https://www.haneda-airport.jp/"
+            }
+          ]
+        },
+        {
+          "time": "10:10",
+          "endTime": "11:40",
+          "title": "值机 · 安检 · 出境",
+          "short": "回程值机",
+          "detail": "国际航班建议提前 2–3 小时到；值机与安检排队以现场为准。\n登机口与登机时间以机场大屏为准。",
+          "kind": "check",
+          "location": "羽田机场 T3 出发层",
+          "map": {
+            "query": "羽田机场第3航站楼",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "羽田机场官网",
+              "href": "https://www.haneda-airport.jp/"
+            }
+          ],
+          "checkId": "check-flight-return"
+        },
+        {
+          "time": "13:00",
+          "endTime": "16:45",
+          "tz": "Asia/Tokyo",
+          "title": "HND → PEK（示例航班）",
+          "short": "回北京",
+          "detail": "示例时刻（按起飞地时区东京）：13:00 羽田起飞 → 东京时间 16:45 落地，即北京时间 15:45。\n东京 UTC+9 比北京 UTC+8 早 1 小时；回程机票时刻按东京时间读。\n航班号与航站楼以订单为准，本示例不写真实班次。",
+          "kind": "flight",
+          "location": "羽田机场 T3 → 北京首都机场 T3",
+          "map": {
+            "query": "北京首都国际机场T3航站楼",
+            "mode": "transit"
+          },
+          "links": [
+            {
+              "label": "羽田机场官网",
+              "href": "https://www.haneda-airport.jp/"
+            },
+            {
+              "label": "首都机场官网",
+              "href": "https://www.bcia.com.cn/"
+            }
+          ]
+        },
+        {
+          "time": "15:45",
+          "endTime": "16:40",
+          "tz": "Asia/Shanghai",
+          "title": "入境 · 提取行李",
+          "short": "北京入境",
+          "detail": "落地北京时间 15:45；跟随指示完成入境与提取行李。",
+          "kind": "check",
+          "location": "首都机场 T3 国际到达",
+          "map": {
+            "query": "北京首都国际机场T3航站楼",
+            "mode": "walking"
+          },
+          "links": [
+            {
+              "label": "首都机场官网",
+              "href": "https://www.bcia.com.cn/"
+            }
+          ]
+        },
+        {
+          "time": "16:45",
+          "endTime": "17:45",
+          "tz": "Asia/Shanghai",
+          "title": "机场 → 市区",
+          "short": "回家",
+          "detail": "按出发时的交通方式返回市区；核对证件与行李再离开机场。",
+          "kind": "move",
+          "location": "首都机场 T3 → 北京市区",
+          "map": {
+            "query": "北京首都国际机场T3航站楼",
+            "mode": "driving"
+          },
+          "links": [
+            {
+              "label": "首都机场官网",
+              "href": "https://www.bcia.com.cn/"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "checklists": [
+    {
+      "id": "before",
+      "title": "出发前",
+      "items": [
+        {
+          "id": "check-flight",
+          "title": "在线值机并保存登机牌",
+          "detail": "起飞前约 48 小时开放值机；把登机牌 PDF 与截图存到手机离线相册，再打印一份备用。",
+          "copy": "PNR：<PNR>（示例占位，请替换）",
+          "links": [
+            {
+              "label": "首都机场 · 出行提示",
+              "href": "https://www.bcia.com.cn/"
+            }
+          ]
+        },
+        {
+          "id": "check-visa",
+          "title": "护照、签证与入境材料",
+          "detail": "确认护照有效期充足、签证在有效期内；入境材料（Visit Japan Web 或纸质表格）按官方最新要求准备。",
+          "copy": "护照尾号：<护照尾号>｜签证有效期至：<有效期>",
+          "links": [
+            {
+              "label": "日本国驻华大使馆",
+              "href": "https://www.cn.emb-japan.go.jp/"
+            }
+          ]
+        },
+        {
+          "id": "check-hotel",
+          "title": "酒店确认单与地址",
+          "detail": "打印或存 PDF；确认入住/退房日期、房型与是否含早。",
+          "copy": "示例酒店（有乐町一带）｜双床房 1 间｜2026-11-20 入住 / 11-24 退房｜确认号：<酒店确认号>",
+          "links": [
+            {
+              "label": "东京都观光官网",
+              "href": "https://www.gotokyo.org/"
+            }
+          ]
+        },
+        {
+          "id": "check-poster",
+          "title": "海报与报告文件",
+          "detail": "A 的海报按会议要求导出 PDF，并准备 A0 打印版坐标文件；PPT、PDF 各存一份并做云备份。",
+          "copy": "海报编号：<海报编号>（本示例 P-12，以现场安排为准）"
+        },
+        {
+          "id": "check-network",
+          "title": "网络与支付准备",
+          "detail": "开通 eSIM 或国际漫游，绑定一张可境外使用的信用卡；备少量现金与一张备用卡。",
+          "links": [
+            {
+              "label": "日本国家旅游局",
+              "href": "https://www.japan.travel/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "after",
+      "title": "落地后",
+      "items": [
+        {
+          "id": "check-arrival",
+          "title": "入境材料与行李",
+          "detail": "准备好护照与入境信息（Visit Japan Web 或纸质表格）；取行李后核对行李牌。",
+          "copy": "VJW 二维码：<VJW 二维码>（示例占位，请替换）",
+          "links": [
+            {
+              "label": "Visit Japan Web",
+              "href": "https://www.vjw.digital.go.jp/"
+            }
+          ]
+        },
+        {
+          "id": "check-sim",
+          "title": "网络连通性测试",
+          "detail": "落地后打开蜂窝数据测试；把酒店与会场的日文地址截图保存。"
+        },
+        {
+          "id": "check-ic",
+          "title": "交通卡与移动支付",
+          "detail": "使用 Suica（实体或手机）或按现场指引购票；充值以现场票价为参照，本示例不写具体金额。",
+          "links": [
+            {
+              "label": "JR 东日本 · Suica",
+              "href": "https://www.jreast.co.jp/suica/"
+            }
+          ]
+        },
+        {
+          "id": "check-hotel-address",
+          "title": "到店核对入住信息",
+          "detail": "与前台确认房型、退房时间与早餐时间；把房卡与护照分开放。",
+          "copy": "酒店地址：东京都千代田区有乐町 <门牌号>（示例酒店，占位）"
+        },
+        {
+          "id": "check-venue",
+          "title": "会场踩点",
+          "detail": "从酒店走到会场约 10–15 分钟（示例）；确认注册台位置、寄存处与最近出口。",
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "during",
+      "title": "会议期间",
+      "items": [
+        {
+          "id": "check-badge",
+          "title": "佩戴参会证并准备二维码",
+          "detail": "把「票券」页加入主屏；入场前调亮屏幕，正对扫码口。",
+          "copy": "参会证：<参会证二维码>（A / B 各一张，示例占位）",
+          "links": [
+            {
+              "label": "东京国际论坛官网",
+              "href": "https://www.t-i-forum.co.jp/"
+            }
+          ]
+        },
+        {
+          "id": "check-poster-onsite",
+          "title": "海报展位与讲解时间",
+          "detail": "到展示厅确认展位编号与讲解时段；把 1 分钟与 3 分钟两个版本各演练一遍。",
+          "copy": "海报展位：<展位号>（本示例 P-12，以现场公布为准）"
+        },
+        {
+          "id": "check-dinner",
+          "title": "晚宴时间与着装",
+          "detail": "确认入场时间与地点；着装 smart casual 即可，不强制正装。",
+          "copy": "晚宴：18:30 入场 · 银座 <晚宴场地>（示例占位）"
+        },
+        {
+          "id": "check-return",
+          "title": "回程航班与退房确认",
+          "detail": "回程前一天查航班动态与天气；确认退房时间、寄存行李与去机场的路线。",
+          "links": [
+            {
+              "label": "羽田机场官网",
+              "href": "https://www.haneda-airport.jp/"
+            },
+            {
+              "label": "日本气象厅",
+              "href": "https://www.jma.go.jp/"
+            }
+          ]
+        },
+        {
+          "id": "check-flight-return",
+          "title": "回程值机与登机口",
+          "detail": "到机场先看航班信息屏确认航站楼与值机岛；值机后确认登机口与登机时间。",
+          "links": [
+            {
+              "label": "首都机场官网",
+              "href": "https://www.bcia.com.cn/"
+            }
+          ]
+        },
+        {
+          "id": "check-daily",
+          "title": "每日备份与议程更新",
+          "detail": "每晚把照片与笔记同步到云盘；早上先看议程是否有临时调整。"
+        }
+      ]
+    }
+  ],
+  "handbook": [
+    {
+      "id": "transport",
+      "title": "交通",
+      "sections": [
+        {
+          "id": "airport",
+          "title": "羽田机场 → 市区",
+          "html": "<p>常用两种走法，视酒店位置选择：</p><ul><li><b>京急线</b>：羽田机场 → 品川，换 JR 山手线；约 25–35 分钟（示例）。</li><li><b>东京单轨</b>：羽田机场 → 滨松町，换 JR；约 25 分钟，沿途可看东京湾。</li></ul><p>刷 Suica/IC 卡进站，或按指示牌现场购票。深夜到达请先确认末班车时间。</p>",
+          "copy": [
+            {
+              "label": "酒店地址（占位）",
+              "value": "东京都千代田区有乐町 <门牌号>｜示例酒店"
+            }
+          ]
+        },
+        {
+          "id": "city",
+          "title": "市内地铁与 JR",
+          "html": "<p>东京公共交通以 <b>东京地铁</b>、<b>都营地铁</b> 与 <b>JR</b> 为主，换乘站多、出口编号多。</p><ul><li>出站前先确认出口编号（如 A4、B1），比记路名更快。</li><li>避开通勤高峰 8:00–9:30、17:30–19:00，带大件行李尤甚。</li><li>同一站名可能分属不同公司，换乘需再次刷卡，属正常。</li></ul>"
+        },
+        {
+          "id": "ic",
+          "title": "交通卡与充值",
+          "html": "<p>Suica / PASMO 可用于地铁、JR、便利店与自动售货机；手机 Suica 绑定后可直接刷卡。</p><p>充值与押金规则以官方说明为准，本示例不写具体数字。</p><p><small>余额不足时闸机会提示，站内精算机可补票。</small></p>",
+          "copy": [
+            {
+              "label": "交通卡官方说明",
+              "value": "https://www.jreast.co.jp/suica/"
+            }
+          ]
+        },
+        {
+          "id": "taxi",
+          "title": "打车与夜间出行",
+          "html": "<p>出租车价格高于公共交通，夜间与雨天更难打。</p><ul><li>使用车站或酒店的正规乘车点，不跟随揽客人员。</li><li>上车给司机看<b>日文地址</b>截图；后排左侧门为自动门。</li></ul>"
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "title": "网络",
+      "sections": [
+        {
+          "id": "esim",
+          "title": "eSIM / 国际漫游",
+          "html": "<p>出发前开通 eSIM 或国际漫游套餐，落地即可使用；确认手机支持 eSIM 且未锁网。</p><ul><li>建议保留国内号接收验证码（双卡方案）。</li><li>把 APN 设置与客服电话截图存在离线相册。</li></ul>"
+        },
+        {
+          "id": "wifi",
+          "title": "Wi-Fi 与充电",
+          "html": "<ul><li>会场、酒店、便利店与车站多有免费 Wi-Fi，需按页面注册，境外号码可能收不到验证码。</li><li>会场网络与充电位紧张，自带充电宝与插线板。</li><li>公共 Wi-Fi 上不要登录网银等高敏感账户。</li></ul>",
+          "copy": [
+            {
+              "label": "酒店 Wi-Fi（占位）",
+              "value": "SSID：<酒店 Wi-Fi 名称>｜密码：<酒店 Wi-Fi 密码>"
+            }
+          ]
+        },
+        {
+          "id": "offline",
+          "title": "离线地图与翻译",
+          "html": "<p>出发前下载离线地图；把酒店、会场、晚宴场地的<b>日文名称与地址</b>截图，问路与打车直接出示。</p><p>常用 App：地图、翻译、交通换乘、天气；出发前登录好并准备好离线包，网络不稳时也能用。</p>"
+        }
+      ]
+    },
+    {
+      "id": "payment",
+      "title": "支付",
+      "sections": [
+        {
+          "id": "card",
+          "title": "信用卡",
+          "html": "<p>Visa / Mastercard / JCB 在多数商户可用；结账时若被问是否按人民币结算（DCC），建议选择日元计价。</p><ul><li>部分小店、老铺只收现金。</li><li>大额消费前先确认是否支持银联。</li></ul>"
+        },
+        {
+          "id": "cash",
+          "title": "现金与取现",
+          "html": "<ul><li>机场与便利店 ATM 多支持境外卡取现，手续费以发卡行为准。</li><li>零钱用于储物柜、小额消费与神社。</li><li>现金分散存放，不随身携带大量现金。</li></ul>",
+          "copy": [
+            {
+              "label": "现金提示（示例）",
+              "value": "随身与行李各放一份备用金，金额自定"
+            }
+          ]
+        },
+        {
+          "id": "invoice",
+          "title": "发票与报销记录",
+          "html": "<p>需要报销时，结账后索取<b>领收书</b>（收据）并确认抬头；日本电子发票较少，优先保留纸质凭证。</p><p>当晚把票据拍照归档，避免回程时找不到。</p>"
+        }
+      ]
+    },
+    {
+      "id": "conference",
+      "title": "参会",
+      "sections": [
+        {
+          "id": "badge",
+          "title": "注册与参会证",
+          "html": "<p>注册台位置与开放时间以会场通知为准；参会证二维码在「票券」页，入场前把屏幕调亮。</p><ul><li>A、B 各一张，不转借。</li><li>丢失先到注册台补办，别自己重新注册。</li></ul>",
+          "copy": [
+            {
+              "label": "参会证提示",
+              "value": "屏幕调亮，正对扫码口"
+            }
+          ]
+        },
+        {
+          "id": "agenda",
+          "title": "议程与分会",
+          "html": "<p>每天早间核对议程页；并行分会时两人分头听、午间交换笔记。</p><p><mark>重点场次</mark>：「城市更新与步行网络」「开放数据与城市治理」（均为示例主题）。</p>"
+        },
+        {
+          "id": "poster",
+          "title": "海报环节",
+          "html": "<ul><li>展位编号以现场公布为准（本例 P-12，占位）。</li><li>准备 1 分钟与 3 分钟两个讲解版本。</li><li>拍照记录提问，会后统一回复。</li></ul>",
+          "copy": [
+            {
+              "label": "海报编号（示例）",
+              "value": "<海报编号>（本示例 P-12，以现场公布为准）"
+            }
+          ]
+        },
+        {
+          "id": "dinner",
+          "title": "会议晚宴",
+          "html": "<p>会议晚宴按通知着装（smart casual 即可），提前 10–15 分钟到场。</p><ul><li>适量饮酒，不劝酒。</li><li>次日有回程安排时更要注意休息。</li></ul>",
+          "copy": [
+            {
+              "label": "晚宴（示例）",
+              "value": "18:30 入场 · 银座 <晚宴场地>（占位）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "安全应急",
+      "sections": [
+        {
+          "id": "numbers",
+          "title": "紧急电话",
+          "html": "<p>日本紧急电话（免费，可用公共电话直拨）：</p><ul><li><b>110</b> 警察</li><li><b>119</b> 火警 / 急救</li><li><b>118</b> 海上保安</li></ul><p>中文不一定能接通；备好翻译 App 与「救护车を呼んでください」的日文截图。</p>",
+          "copy": [
+            {
+              "label": "紧急电话",
+              "value": "警察 110｜火警急救 119｜海上保安 118｜领保 12308"
+            }
+          ]
+        },
+        {
+          "id": "quake",
+          "title": "地震与台风",
+          "html": "<p>日本地震多发，保持冷静、先护住头颈。</p><ul><li>室内：躲到桌下，远离玻璃与吊灯，不要乘电梯。</li><li>室外：远离建筑外墙与广告牌，前往开阔地。</li><li>台风：关注<b>日本气象厅</b>预警，减少外出，提前充电与储水。</li></ul>",
+          "copy": [
+            {
+              "label": "气象厅官网",
+              "value": "https://www.jma.go.jp/"
+            }
+          ]
+        },
+        {
+          "id": "lost",
+          "title": "证件丢失与领事协助",
+          "html": "<p>护照丢失：先到附近<b>警察署</b>报案并索取受理证明，再联系中国驻日本使领馆补办（电话与办公时间以官网公布为准）。</p><p>信用卡丢失：立即在 App 冻结并联系发卡行。</p><p>紧急时可拨 110 求助，或请酒店前台协助。</p>",
+          "copy": [
+            {
+              "label": "中国驻日本大使馆",
+              "value": "https://jp.china-embassy.gov.cn/"
+            },
+            {
+              "label": "领事保护热线",
+              "value": "12308（中国外交部全球领事保护与服务应急热线）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "title": "饮食",
+      "sections": [
+        {
+          "id": "food",
+          "title": "饮食与过敏",
+          "html": "<p>便利店、定食与拉面选择多；生食注意新鲜度与个人体质。</p><ul><li>过敏或忌口可出示「アレルギー」加食材的日文写法。</li><li>不吃生食可选「焼き」「煮」类做法。</li><li>饮水点较少，便利店买水方便。</li></ul>"
+        },
+        {
+          "id": "convenience",
+          "title": "便利店与饮水",
+          "html": "<p>便利店遍布车站与街区，便当、饭团与热食可以解决一顿简餐。</p><ul><li>20:00 后部分熟食会打折，热门饭团可能售罄。</li><li>车站与公园饮水点少，买水或自带水杯。</li><li>店内用餐需自己收盘；现金与 IC 卡多可结账。</li></ul>",
+          "copy": [
+            {
+              "label": "便利店补给（示例）",
+              "value": "水／饭团／热食｜以门店当日供应为准"
+            }
+          ]
+        },
+        {
+          "id": "etiquette",
+          "title": "用餐礼仪与垃圾分类",
+          "html": "<ul><li>进店先等店员安排座位，很多店需要在门口登记人数。</li><li>不要边走边吃（景区摊位除外）；日本不收小费。</li><li>垃圾随身带走，便利店门口按标识分类投放。</li><li>拍摄菜品前先看店内是否允许拍照。</li></ul>"
+        }
+      ]
+    },
+    {
+      "id": "packing",
+      "title": "打包与穿着",
+      "sections": [
+        {
+          "id": "dress",
+          "title": "天气与衣物",
+          "html": "<p>11 月东京白天约 10–18℃（示例，出行前查日本气象厅逐日预报）。</p><ul><li>薄外套加针织衫，早晚温差大。</li><li>步行多，带一双舒适鞋。</li><li>折叠伞或防水外套。</li><li>正装只在晚宴需要，smart casual 即可。</li></ul>"
+        },
+        {
+          "id": "gear",
+          "title": "药品与电子用品",
+          "html": "<p>日本电压 100V，插座为 A 型两脚扁插；中国两脚插头可直接用，三脚或大功率设备需转换插头。</p><ul><li>常用药（感冒、肠胃、止痛、创可贴）按个人需要携带，保留原包装。</li><li>充电宝随身、不可托运；带一个多口充电头或插线板。</li><li>处方药带好处方或说明，入境规定以日本官方为准。</li></ul>",
+          "copy": [
+            {
+              "label": "电压与插座",
+              "value": "日本 100V / A 型两脚扁插（中国两脚可直接用）"
+            }
+          ]
+        },
+        {
+          "id": "luggage",
+          "title": "行李与限重",
+          "html": "<ul><li>随身行李：护照、登机牌、充电宝、常用药、一件薄外套。</li><li>液体、喷雾按安检与托运规定分装。</li><li>回程伴手礼注意航空限重与海关申报要求。</li><li>给行李箱加醒目挂饰或贴纸，避免拿错。</li></ul>",
+          "copy": [
+            {
+              "label": "随身清单（示例）",
+              "value": "护照／登机牌／充电宝／常用药／薄外套／转换插头"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "time",
+      "title": "时间与时区",
+      "sections": [
+        {
+          "id": "diff",
+          "title": "中日时差",
+          "html": "<p>东京 <b>UTC+9</b>、北京 <b>UTC+8</b>，东京比北京<b>早 1 小时</b>。</p><ul><li>北京 09:00 = 东京 10:00</li><li>东京 13:20 = 北京 12:20</li><li>回程只倒 1 小时，几乎无时差感。</li></ul>",
+          "copy": [
+            {
+              "label": "时差口诀",
+              "value": "东京比北京早 1 小时：北京 +1h = 东京，东京 −1h = 北京"
+            }
+          ]
+        },
+        {
+          "id": "flight",
+          "title": "机票时刻怎么读",
+          "html": "<p>机票与登机牌上的时刻都是<b>当地时刻</b>：去程按北京读，回程按东京读。</p><p>本行程的航班事件用 <code>tz</code> 标注所在时区（去程为起飞地北京，回程为起飞地东京），页面会把事件换算成「东京 · 北京」双时区显示。</p>",
+          "copy": [
+            {
+              "label": "去程（示例）",
+              "value": "北京 10:20 起飞 → 东京 14:35 落地"
+            }
+          ]
+        },
+        {
+          "id": "clock",
+          "title": "闹钟与作息",
+          "html": "<ul><li>手机加两个世界时钟：北京、东京。</li><li>闹钟按东京时间设置。</li><li>会议当天提前 15 分钟到会场。</li><li>跨时区航班当天，后续行程按<b>到达地时间</b>安排。</li></ul>"
+        }
+      ]
+    }
+  ],
+  "tickets": [
+    {
+      "id": "badge-a",
+      "title": "参会证 A",
+      "person": "A",
+      "qr": "assets/qr-a.svg",
+      "hint": "屏幕调亮，正对扫码口；A 兼海报讲解，进场后先去 P-12 展位（示例）。本二维码为示例占位，请替换为真实票码。",
+      "links": [
+        {
+          "label": "会场官网",
+          "href": "https://www.t-i-forum.co.jp/"
+        }
+      ]
+    },
+    {
+      "id": "badge-b",
+      "title": "参会证 B",
+      "person": "B",
+      "qr": "assets/qr-b.svg",
+      "hint": "屏幕调亮，正对扫码口；B 负责拍照与笔记，入场后先到注册台确认。本二维码为示例占位，请替换为真实票码。",
+      "links": [
+        {
+          "label": "会场官网",
+          "href": "https://www.t-i-forum.co.jp/"
+        }
+      ]
+    }
+  ]
+}
