@@ -144,7 +144,7 @@ node scripts/verify.mjs <trip.json> --quiet  # 只输出错误摘要
 Agent：
 1. 收集资料 → 问清 3 件事：酒店订单是否含早餐、A/B 各自的参会证类型、回程值机时间
 2. 调研 → 羽田→市区的交通方式与末班车、会场与酒店的位置关系、落地入境用时
-3. 写 trip.json → 参考 examples/tokyo-conference/trip.json，航班拆成「出发/抵达」两条
+3. 写 trip.json → 参考 examples/tokyo-conference/trip.json（示例把航班合并为一条、endTime 按起飞地时区换算）
 4. 构建 → node scripts/build.mjs trips/tokyo-2026/trip.json --multi --out dist
 5. 校验 → node scripts/verify.mjs trips/tokyo-2026/trip.json --strict
 6. 预览 → 打开 dist/index.html；提出部署到 GitHub Pages / 把 ticket-badge-a.html 发给 A

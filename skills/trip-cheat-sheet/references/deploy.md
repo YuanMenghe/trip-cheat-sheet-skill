@@ -2,6 +2,7 @@
 
 > 这份文档讲三件事：**构建产物怎么部署**、**单文件和多文件怎么选**、**怎么只把某人的票券页发给他，以及密码门能挡什么、挡不住什么**。
 > 生成器用法见 [`trip-schema.md`](./trip-schema.md) / [`../SKILL.md`](../SKILL.md)。
+> 下文命令默认在 **skill 根目录**（含 `scripts/`、`templates/` 的目录）执行，`--out` 等相对路径都按当前目录解析；换成绝对路径或你自己的行程路径即可。
 
 ## 1. 先看产物：两种模式，输出什么
 
@@ -39,7 +40,7 @@ dist/
 ```
 
 - `ticket-<id>.html` 里的 `<id>` 就是 `trip.json` 的 `tickets[].id`（例如 `ticket-badge-a.html`）；
-- 票券页带 `noindex`，但仍然是**公开可访问**的页面（见 §5）；
+- 票券页带 `noindex`，但仍然是**公开可访问**的页面（见 §6）；
 - 主页面和票券页都依赖 `assets/`，**不能只传一个 HTML**。
 
 ## 2. 单文件 vs 多文件怎么选
@@ -50,7 +51,7 @@ dist/
 | 部署成长期站点、经常更新 | 单文件或多文件都行 | 单文件重传一个文件；多文件结构更清晰、缓存友好 |
 | 要按人分享票券页 | **多文件** | 每张票有独立 `ticket-<id>.html` |
 | 需要按人「最小权限」分享 | **多文件** | 只发对应票券页，不暴露整份行程 |
-| 要密码门 | 两种都支持 | 密码门只保护主页面，票券页不弹密码框（见 §6） |
+| 要密码门 | 两种都支持 | 主页面与多文件模式的 `ticket-<id>.html` 都会弹密码框（同一密码，验证一次后本浏览器记住；见 §6） |
 | 离线保存、打印、邮件附件 | **单文件** | 无外部依赖（注意本地 QR 资源） |
 
 ## 3. 部署到 GitHub Pages
@@ -59,11 +60,12 @@ dist/
 
 仓库自带 `.github/workflows/pages.yml`：
 
-- 推送到 `main` 触发；
-- job `build-and-deploy` 构建示例数据并发布 Pages；
+- 推送到 `main`（或手动 `workflow_dispatch`）触发；
+- job `build-and-deploy`：先跑 `verify.mjs --strict`，再构建示例并发布 Pages（Node 20）；
+- 多文件站点发布在站点根路径，单文件示例附在 `/tripcheat-single.html`；
 - 演示地址：<https://yuanmenghe.github.io/trip-cheat-sheet-skill/>。
 
-> 本地想复现演示：`node scripts/build.mjs examples/tokyo-conference/trip.json --out demo --force`，再把 `demo/` 当站点预览（不要提交构建产物）。
+> 本地想复现演示：在 skill 目录运行 `node scripts/build.mjs examples/tokyo-conference/trip.json --multi --out ../../_site --force`（单文件版再加一条 `--out ../../_single --force` 并复制 index.html），`_site/`、`_single/` 都已被 `.gitignore` 排除，不要提交。本地快速看也可以直接 `--out dist`。
 
 ### 3.2 部署自己的行程（三种方式）
 
@@ -180,7 +182,7 @@ npx wrangler pages deploy dist --project-name <project-name>
 - 票券页带 `<meta name="robots" content="noindex">`，只是「不建议搜索引擎收录」，**不等于私有**；
 - 公开 URL = 任何拿到链接的人都能看；
 - 真二维码是真凭证，不要放进公开托管；配送方式优先私聊/当面，或使用托管平台的访问控制（如 Cloudflare Access）、私有云盘、加密压缩包；
-- 密码门**不保护**多文件模式的 `ticket-<id>.html`（见下一节）。
+- 密码门会同时保护主页面与多文件模式的 `ticket-<id>.html`（同一密码，同一个浏览器验证一次即可；前端校验的局限见 §7）。
 
 ## 7. 密码门（SHA-256 前端校验）
 
@@ -214,7 +216,7 @@ node -e "console.log(require('node:crypto').createHash('sha256').update('your-pa
 | 熟人拿到链接、随手打开的「手滑」 | 懂前端的人：内容就内嵌在 HTML/JSON 里，看源码或禁用 JS 即可绕过 |
 | 不认识的访客误入 | 暴力破解：哈希可离线枚举，弱密码/常用密码很快被猜出 |
 | 简单分享时的一层门槛 | 搜索引擎/爬虫（页面仍是公开 URL） |
-| — | 多文件模式的 `ticket-<id>.html`：**当前实现只给主页面挂密码门**，票券页直接打开 |
+| 熟人误入后的继续翻看 | 前端校验本身：密码哈希与内容都在页面里，可被查看源码绕过、离线枚举 |
 
 补充：
 
@@ -228,7 +230,7 @@ node -e "console.log(require('node:crypto').createHash('sha256').update('your-pa
 - **更新**：改 `trip.json` → 重新构建（输出目录非空加 `--force`）→ 重新上传/推送 → 等托管平台刷新；
 - **缓存**：Pages 有 CDN 缓存，通常几分钟内生效；手机端用强制刷新（或无痕窗口）验证；PWA 加到主屏后可能需要重新打开才会更新；
 - **回滚**：Git 分支/提交回退最简单（GitHub Pages、Cloudflare Pages 都支持重新部署旧提交）；手动上传的托管保留上一版 `dist/` 备份再覆盖；
-- **别提交构建产物**：`dist/`、`demo/` 是生成物；用 `.gitignore` 排除，CI 构建或本地构建后再部署。
+- **别提交构建产物**：`dist/`、`_site/`、`_single/` 是生成物，仓库 `.gitignore` 已排除；CI 构建或本地构建后再部署。
 
 ## 9. 发布前检查清单
 

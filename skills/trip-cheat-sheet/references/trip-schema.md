@@ -49,13 +49,13 @@
   "note": "可选：当天的整体提示",
   "events": [
     {
-      "time": "07:30",
-      "endTime": "11:20",
-      "tz": "Asia/Tokyo",
+      "time": "08:00",
+      "endTime": "11:30",
+      "tz": "Asia/Shanghai",
       "skipTimezone": false,
       "title": "PEK → HND",
       "short": "飞东京",
-      "detail": "值机、安检、预计到达时间……",
+      "detail": "北京 08:00 起飞（东京当地 09:00），预计东京当地 12:30 落地。endTime 按 tz（起飞地）写成本时间 11:30；更推荐把起飞、落地拆成两条事件，各自用当地时区。",
       "kind": "flight",
       "location": "羽田机场 T3",
       "map": { "query": "羽田机场第3航站楼", "mode": "transit" },

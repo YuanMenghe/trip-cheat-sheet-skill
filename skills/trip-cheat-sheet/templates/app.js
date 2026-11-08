@@ -702,29 +702,36 @@
   /* ───────────────────── 多文件：票券页 ───────────────────── */
   function initTicketPage(data) {
     initLook(data, makeStore({ meta: data.meta || {}, home: { tz: 'UTC' }, days: [], allEvents: [] }));
-    var main = document.getElementById('main');
-    if (!main) return;
-    main.textContent = '';
-    var t = data.ticket || {};
-    var wrap = el('div', { class: 'ticket-wrap' });
-    var tabs = el('div', { class: 'ticket-tabs' });
-    (data.siblings || []).forEach(function (s) {
-      var a = el('a', { href: s.href || '#', 'aria-current': String(s.id === t.id) }, (s.person || '') + ' · ' + (s.title || '票券'));
-      tabs.appendChild(a);
-    });
-    if (tabs.children.length) wrap.appendChild(tabs);
-    var card = el('div', { class: 'ticket-card' }, [
-      el('h2', null, t.title || '票券'),
-      t.person ? el('p', { class: 'person' }, '持有人：' + t.person) : null,
-      el('img', { src: t.qr || '', alt: (t.person || '') + ' 的二维码' }),
-      t.hint ? el('p', { class: 'hint' }, t.hint) : null
-    ]);
-    (t.links || []).forEach(function (l) { if (l && l.href) card.appendChild(el('a', { href: l.href, target: '_blank', rel: 'noopener', class: 'ticket-back' }, l.label || '链接')); });
-    card.appendChild(el('a', { class: 'ticket-back', href: 'index.html' }, '返回行程'));
-    wrap.appendChild(card);
-    main.appendChild(wrap);
-    var foot = el('p', { class: 'foot' }, (data.meta || {}).footer || '');
-    main.appendChild(foot);
+
+    function render() {
+      var main = document.getElementById('main');
+      if (!main) return;
+      main.textContent = '';
+      var t = data.ticket || {};
+      var wrap = el('div', { class: 'ticket-wrap' });
+      var tabs = el('div', { class: 'ticket-tabs' });
+      (data.siblings || []).forEach(function (s) {
+        var a = el('a', { href: s.href || '#', 'aria-current': String(s.id === t.id) }, (s.person || '') + ' · ' + (s.title || '票券'));
+        tabs.appendChild(a);
+      });
+      if (tabs.children.length) wrap.appendChild(tabs);
+      var card = el('div', { class: 'ticket-card' }, [
+        el('h2', null, t.title || '票券'),
+        t.person ? el('p', { class: 'person' }, '持有人：' + t.person) : null,
+        el('img', { src: t.qr || '', alt: (t.person || '') + ' 的二维码' }),
+        t.hint ? el('p', { class: 'hint' }, t.hint) : null
+      ]);
+      (t.links || []).forEach(function (l) { if (l && l.href) card.appendChild(el('a', { href: l.href, target: '_blank', rel: 'noopener', class: 'ticket-back' }, l.label || '链接')); });
+      card.appendChild(el('a', { class: 'ticket-back', href: 'index.html' }, '返回行程'));
+      wrap.appendChild(card);
+      main.appendChild(wrap);
+      var foot = el('p', { class: 'foot' }, (data.meta || {}).footer || '');
+      main.appendChild(foot);
+    }
+
+    var gate = data.meta && data.meta.gate;
+    if (gate && gate.enabled && gate.passwordHash) mountGate({ meta: data.meta }, render);
+    else render();
   }
 
   /* ───────────────────── 图标 ───────────────────── */
@@ -753,7 +760,8 @@
     var mainData = parsesJson('trip-data');
     var ticketData = parsesJson('trip-ticket');
     if (mainData) {
-      if (mainData.gate && mainData.gate.enabled && mainData.gate.passwordHash) {
+      var gateCfg = mainData.meta && mainData.meta.gate;
+      if (gateCfg && gateCfg.enabled && gateCfg.passwordHash) {
         mountGate(mainData, function () { initMain(mainData); });
       } else initMain(mainData);
     } else if (ticketData) initTicketPage(ticketData);
@@ -761,6 +769,7 @@
 
   /* ───────────────────── 密码门 ───────────────────── */
   function mountGate(data, onUnlock) {
+    var gateCfg = (data.meta && data.meta.gate) || data.gate || {};
     var key = 'tripcheat:' + hashStr((data.meta || {}).title || 'trip') + ':gate';
     try { if (localStorage.getItem(key) === 'ok') { onUnlock(); return; } } catch (e) {}
     var gate = document.getElementById('gate');
@@ -783,7 +792,7 @@
       if (window.crypto && crypto.subtle) {
         crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.value)).then(function (buf) {
           var hex = Array.prototype.map.call(new Uint8Array(buf), function (b) { return b.toString(16).padStart(2, '0'); }).join('');
-          if (hex === data.gate.passwordHash) {
+          if (hex === gateCfg.passwordHash) {
             try { localStorage.setItem(key, 'ok'); } catch (e) {}
             gate.hidden = true; gate.textContent = '';
             onUnlock();

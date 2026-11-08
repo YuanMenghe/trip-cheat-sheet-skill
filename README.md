@@ -3,7 +3,7 @@
 > 把散落的航班截图、酒店确认单、会议议程和攻略，变成**一页手机上随手能查的行程**：
 > **行程时间线 · 清单 · 手册**，双时区、地图深链、二维码票券，一个文件或一个静态站点。
 
-**License** MIT · **Runtime** Node.js ≥ 18 · **在线演示** <https://yuanmenghe.github.io/trip-cheat-sheet-skill/> · **Agent Skill** `trip-cheat-sheet`
+**License** MIT · **Runtime** Node.js ≥ 18 · **在线演示** <https://yuanmenghe.github.io/trip-cheat-sheet-skill/>（单文件版：<https://yuanmenghe.github.io/trip-cheat-sheet-skill/tripcheat-single.html>）· **Agent Skill** `trip-cheat-sheet`
 
 > 徽章暂用文字占位（不使用第三方徽章图片）。截图来自示例数据的真实渲染，更多效果见 demo 站点。
 
