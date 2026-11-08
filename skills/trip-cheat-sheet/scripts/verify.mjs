@@ -67,12 +67,11 @@ export function validateTrip(data, opts = {}) {
   if (meta.theme && !THEMES.has(meta.theme)) push('error', `meta.theme 只能是 paper/slate/night，当前 ${meta.theme}`);
   if (meta.mapProvider && !['google', 'amap', 'apple'].includes(meta.mapProvider)) push('error', `meta.mapProvider 无效：${meta.mapProvider}`);
   if (meta.tripType && !['business', 'leisure', 'mixed'].includes(meta.tripType)) push('error', `meta.tripType 只能是 business / leisure / mixed，当前 ${meta.tripType}`);
-  const isBiz = meta.tripType === 'business' || meta.tripType === 'mixed';
-  if (isBiz && !(Array.isArray(root.handbook) && root.handbook.some((g) => g && g.id === 'expense'))) {
-    push('warning', '公差/混合行程建议加 handbook「expense（报销与票据）」章：发票、行程单、审批单、公司卡/个人垫付');
-  }
   if (meta.tripType === 'mixed' && !meta.footer) {
-    push('warning', '混合行程建议在 meta.footer 写清「哪几天是公差、哪几天是私人行程」，避免报销口径混淆');
+    push('warning', '混合行程建议在 meta.footer 写清「哪几天是公差、哪几天是私人行程」，便于分段规划与隐私处理');
+  }
+  if (meta.showTimezone !== undefined && typeof meta.showTimezone !== 'boolean') {
+    push('error', `meta.showTimezone 必须是 boolean，当前 ${typeof meta.showTimezone}`);
   }
   if (meta.gate && meta.gate.enabled) {
     if (!/^[a-f0-9]{64}$/i.test(String(meta.gate.passwordHash || ''))) push('error', 'meta.gate.passwordHash 必须是 SHA-256 hex（64 位）');
@@ -152,6 +151,22 @@ export function validateTrip(data, opts = {}) {
         }
       }
     });
+    // 规划质量：转场缓冲（只检查都有地点、且地点不同的相邻事件）
+    const toMin = (s) => { const [h, m] = String(s).split(':').map(Number); return h * 60 + m; };
+    const timed = events
+      .filter((ev) => ev && TIME_RE.test(String(ev.time || '')))
+      .slice()
+      .sort((a, b) => toMin(a.time) - toMin(b.time));
+    for (let i = 1; i < timed.length; i += 1) {
+      const prev = timed[i - 1], cur = timed[i];
+      if (!prev.endTime || !TIME_RE.test(String(prev.endTime))) continue;
+      if (!prev.location || !cur.location) continue;
+      if (String(prev.location) === String(cur.location)) continue;
+      let gap = toMin(cur.time) - toMin(prev.endTime);
+      if (gap < 0) gap += 24 * 60;
+      if (gap === 0) continue; // 同一时刻的连续动作（落地→入境、到站→开始游览）不算转场
+      if (gap < 10) push('warning', `days[${di}] ${prev.endTime} 结束到 ${cur.time} 开始只有 ${gap} 分钟，转场缓冲偏短（建议 10–15 分钟以上）`);
+    }
   });
 
   const handbook = Array.isArray(root.handbook) ? root.handbook : [];
