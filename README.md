@@ -1,3 +1,5 @@
+**简体中文** · [English](README.en.md)
+
 # TripCheat · AI 行程规划专家
 
 > 把散落的航班截图、酒店确认单、会议议程和攻略，变成**一页手机上随手能查的行程**：
@@ -150,7 +152,8 @@ npx serve dist
 
 ```text
 trip-cheat-sheet-skill/
-├── README.md
+├── README.md                        # 简体中文
+├── README.en.md                     # English
 ├── LICENSE                          # MIT
 ├── .github/workflows/pages.yml      # push main 时构建示例并发布 Pages
 ├── docs/screenshots/                # README 截图（示例数据的真实渲染）
@@ -196,81 +199,4 @@ trip-cheat-sheet-skill/
 
 ---
 
-# TripCheat — AI itinerary planner (English)
-
-**TripCheat** is an open-source [Agent Skill](https://agentskills.io) that turns scattered travel materials (flight and hotel screenshots, conference agenda, tickets, links, chat logs) into **one mobile-friendly web page** with three views: **itinerary timeline, checklists, and a destination handbook** — dual timezone, map deep links, QR ticket pages, single-file or multi-page output, deployable to any static host.
-
-> Demo: <https://yuanmenghe.github.io/trip-cheat-sheet-skill/> · License: MIT · Runtime: Node.js ≥ 18 · Skill name: `trip-cheat-sheet`
-
-## What it does
-
-1. **Collects** your materials and asks a short clarifying round (who, when, what is booked, what matters).
-2. **Researches** the trip online (airport transfers, ticket reservations, payments, emergency numbers), explicitly separating **verified** from **unverified** facts and citing official sources.
-3. **Writes** a single `trip.json` following the data contract.
-4. **Builds** a static, offline-capable travel page with `scripts/build.mjs`.
-5. **Verifies** the data with `scripts/verify.mjs` (required fields, timezones, links, HTML whitelist, privacy scan).
-6. **Ships** it: preview locally, deploy to GitHub Pages / Cloudflare Pages / any static host, or share one person's ticket page.
-
-## Features
-
-- Three views: itinerary timeline, checklist, destination handbook; “current / next event” highlighting.
-- Dual timezone: destination clocks plus home clocks, per-event conversions; flight, transit and cross-day handling.
-- Single-file HTML (default) or multi-page static site (`--multi`) with per-person `ticket-<id>.html` pages.
-- QR ticket pages, map deep links (Google / Amap / Apple), one-tap copy fields, checklist state saved in `localStorage`.
-- **Research standards**: routes verified with map apps (time ranges, last trains, walking distances); restaurants cross-checked with platform ratings + Xiaohongshu real experiences (personal experience only) and confirmed for reservation availability; hotels justified by commute, nightlife/shopping access, and reimbursement rules (invoice type, cap, deposit).
-- **Business / leisure / mixed tracks**: `meta.tripType` changes **how the trip is planned** — business trips lock meeting/flight hard constraints first, let sightseeing yield, and respect company hotel caps; leisure trips prioritize experience and budget; mixed trips are planned in segments. Reimbursement items are just **checklist reminders** (the agent can ask/record), with no structured fields or totals.
-- Themes (paper / slate / night), font size switch, PWA install, optional password gate.
-- Data contract + validator; zero backend; pure static output.
-- Example data is fictional and sanitized; QR images in the repo are placeholders only.
-
-## Install
-
-An Agent Skill is a directory containing a `SKILL.md`. Copy `skills/trip-cheat-sheet/` into your client's skills directory:
-
-| Client | Path |
-|---|---|
-| Claude Code | `~/.claude/skills/trip-cheat-sheet/` (personal) or `.claude/skills/trip-cheat-sheet/` (project) |
-| Codex | `~/.agents/skills/trip-cheat-sheet/` (user) or `.agents/skills/trip-cheat-sheet/` (repo) |
-| Cursor | `~/.cursor/skills/trip-cheat-sheet/` or `~/.agents/skills/trip-cheat-sheet/` (project: `.cursor/skills/`, `.agents/skills/`) |
-| OpenCode | `~/.config/opencode/skills/trip-cheat-sheet/` (global) or `.opencode/skills/trip-cheat-sheet/` (project) |
-| DSH (DeepSeek Harness) | `~/.agents/skills/trip-cheat-sheet/` (`%USERPROFILE%\.agents\skills\` on Windows) |
-| OpenClaw | `~/.agents/skills/trip-cheat-sheet/` (personal) or `<workspace>/skills/trip-cheat-sheet/` |
-| Other Agent Skills clients | that client's skills directory — one folder per skill, `SKILL.md` inside |
-
-```bash
-git clone https://github.com/YuanMenghe/trip-cheat-sheet-skill.git
-mkdir -p ~/.agents/skills
-cp -R trip-cheat-sheet-skill/skills/trip-cheat-sheet ~/.agents/skills/
-```
-
-## Quick start (3 minutes)
-
-```bash
-git clone https://github.com/YuanMenghe/trip-cheat-sheet-skill.git
-cd trip-cheat-sheet-skill/skills/trip-cheat-sheet
-node scripts/build.mjs examples/tokyo-conference/trip.json --out dist
-node scripts/verify.mjs examples/tokyo-conference/trip.json
-# open dist/index.html
-```
-
-Multi-page site (one shareable page per ticket):
-
-```bash
-node scripts/build.mjs examples/tokyo-conference/trip.json --multi --out dist
-```
-
-Ask your agent (after installing the skill):
-
-> "I'm attending a conference in Tokyo, Nov 20–24. Here are my flight, hotel and agenda screenshots. Build me a mobile trip page with dual timezones, checklists and a deployable site."
-
-## Documentation
-
-- [SKILL.md](skills/trip-cheat-sheet/SKILL.md) — when and how the skill runs, quality rules
-- [trip-schema.md](skills/trip-cheat-sheet/references/trip-schema.md) — `trip.json` data contract
-- [content-guide.md](skills/trip-cheat-sheet/references/content-guide.md) — writing rules (six event elements, dual timezone, handbook chapters)
-- [deploy.md](skills/trip-cheat-sheet/references/deploy.md) — GitHub Pages, Cloudflare Pages, static hosting, ticket sharing, password gate limits
-
-## License & contributing
-
-MIT. Example data is entirely fictional; QR images are placeholders. Never commit real ticket codes, QR images, ID numbers, phone numbers, or other people's private data. Contributions are welcome: add examples under `skills/trip-cheat-sheet/examples/<name>/`, keep `trip-schema.md`, scripts, examples and docs in sync, and run `node scripts/verify.mjs <trip.json> --strict` before opening a PR.
-
+> English version: [README.en.md](README.en.md)
